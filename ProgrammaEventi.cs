@@ -61,7 +61,12 @@ namespace GestoreEventi
 
         public string MostraProgrammaEventi()
         {
-            return 
+            string listaEventi = $"{titolo} \n";
+            foreach (Evento evento in eventi) 
+            {
+                listaEventi += $"{evento.Data} - {evento.Titolo} \n"; 
+            }
+            return listaEventi;
         }
     }
 }
