@@ -61,7 +61,7 @@ namespace GestoreEventi
         }
 
         //METODI
-        public void PrenotaPosti(int numPosti) 
+        public void PrenotaPosti(int numPosti)
         {
             if (numPosti < 0)
                 throw new ArgumentException("Il numero dei posti deve avere un valore positivo");
@@ -79,7 +79,7 @@ namespace GestoreEventi
                 throw new ArgumentException("Il numero dei posti deve avere un valore positivo");
             if (data < DateTime.Now)
                 throw new InvalidOperationException("Impossibile disdire prenotazioni per un evento passato");
-            if (numPosti - postiPrenotati < 0)
+            if (postiPrenotati - numPosti  < 0)
                 throw new InvalidOperationException("Non ci sono abbastanza prenotati da disdire");
             postiPrenotati -= numPosti;
         }
@@ -90,5 +90,10 @@ namespace GestoreEventi
             return $"{dataFormattata} - {titolo}";
         }
 
+        public void StampaPosti() 
+        {
+            Console.WriteLine($"Numero di posti prenotati: - {PostiPrenotati}");
+            Console.WriteLine($"Numero di posti disponibili: - {CapienzaMassima - PostiPrenotati}");
+        }
     }
 }
