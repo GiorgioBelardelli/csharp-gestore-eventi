@@ -44,7 +44,7 @@ namespace GestoreEventi
             string lista = "";
             foreach (Evento evento in eventi)
             {
-                lista += $"{evento.Data} - {evento.Titolo} \n";
+                lista += $"{evento.ToString()} \n";
             }
             return lista;
         }
@@ -64,7 +64,7 @@ namespace GestoreEventi
             string listaEventi = $"{titolo} \n";
             foreach (Evento evento in eventi) 
             {
-                listaEventi += $"{evento.Data} - {evento.Titolo} \n"; 
+                listaEventi += $"{evento.ToString()} \n"; 
             }
             return listaEventi;
         }
